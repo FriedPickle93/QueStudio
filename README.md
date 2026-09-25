@@ -27,4 +27,13 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Deploy
 
-Push to GitHub and connect the repo on Vercel.
+Connect the repo on Vercel — the defaults for Next.js work as-is.
+
+The canonical URL used by metadata, `robots.txt`, and `sitemap.xml` resolves
+from `NEXT_PUBLIC_SITE_URL`, falling back to Vercel's production URL. Set
+`NEXT_PUBLIC_SITE_URL` once a custom domain is attached.
+
+## Editing the offer
+
+Packages, add-on prices, Care plans, example quotes, and the quote email all
+live in `src/lib/offer.ts`.

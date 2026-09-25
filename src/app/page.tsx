@@ -100,10 +100,7 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <a
-                  href={`#quote`}
-                  className="btn-primary mt-8 no-underline"
-                >
+                <a href="#quote" className="btn-primary mt-8 no-underline">
                   Start with {pkg.name}
                 </a>
               </article>

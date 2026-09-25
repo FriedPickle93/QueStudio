@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Figtree } from "next/font/google";
+import { siteUrl } from "@/lib/offer";
 import "./globals.css";
 
 const display = Bricolage_Grotesque({
@@ -15,6 +16,7 @@ const body = Figtree({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "QueStudio — Websites that get bookings and calls",
   description:
     "Fixed-package custom websites for local businesses. Presence $900 · Business $1,800 · Bookings $3,200. Next.js + Vercel.",
@@ -23,6 +25,14 @@ export const metadata: Metadata = {
     description:
       "Custom websites for local shops, trades, food, beauty, and home services. Fixed packages, no agency fluff.",
     type: "website",
+    url: siteUrl,
+    siteName: "QueStudio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "QueStudio — Websites that get bookings and calls",
+    description:
+      "Fixed-package custom websites for local businesses. Presence $900 · Business $1,800 · Bookings $3,200.",
   },
 };
 
