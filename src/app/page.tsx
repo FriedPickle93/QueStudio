@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { HeroVisual } from "@/components/HeroVisual";
 import { SiteHeader } from "@/components/SiteHeader";
 import {
@@ -121,14 +122,36 @@ export default function Home() {
           </div>
           <ul className="grid gap-8 sm:grid-cols-3">
             {portfolio.map((item) => (
-              <li key={item.name} className="border-t border-ink pt-4">
-                <p className="text-xs font-semibold uppercase tracking-wider text-signal">
-                  {item.tag}
-                </p>
-                <h3 className="display mt-2 text-2xl font-bold">{item.name}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">
-                  {item.blurb}
-                </p>
+              <li key={item.name}>
+                <a
+                  href={item.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group block no-underline"
+                >
+                  <div className="overflow-hidden border border-line bg-screen">
+                    <Image
+                      src={item.image}
+                      alt={`${item.name} homepage`}
+                      width={1200}
+                      height={750}
+                      sizes="(min-width: 640px) 33vw, 100vw"
+                      className="h-auto w-full transition duration-300 group-hover:scale-[1.03]"
+                    />
+                  </div>
+                  <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-signal">
+                    {item.tag}
+                  </p>
+                  <h3 className="display mt-1 text-2xl font-bold group-hover:underline">
+                    {item.name}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">
+                    {item.blurb}
+                  </p>
+                  <p className="mt-2 text-sm font-semibold text-ink-soft">
+                    {item.domain} ↗
+                  </p>
+                </a>
               </li>
             ))}
           </ul>

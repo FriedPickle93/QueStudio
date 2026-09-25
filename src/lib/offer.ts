@@ -98,18 +98,30 @@ export const carePlans = [
 export const portfolio = [
   {
     name: "LashedByBriski",
-    blurb: "Service + gallery + policies · booking & deposits",
+    url: "https://lashed-by-briski.vercel.app/",
+    domain: "lashed-by-briski.vercel.app",
+    image: "/work/lashedbybriski.webp",
+    blurb:
+      "Lash studio with online booking, $5 deposit to hold the chair, services, hours, and policies.",
     tag: "Bookings",
   },
   {
     name: "StubbsRugz",
-    blurb: "Branded multi-page presence for a home service shop",
+    url: "https://www.stubbsrugz.com/",
+    domain: "stubbsrugz.com",
+    image: "/work/stubbsrugz.webp",
+    blurb:
+      "Custom rug shop — branded hero, gallery, pricing, and custom order requests.",
     tag: "Business",
   },
   {
-    name: "Lovely Reds",
-    blurb: "Fast branded landing built to convert to contact",
-    tag: "Presence",
+    name: "Lovely Red’s Plush Rugs",
+    url: "https://lovelyredsrugs.com/",
+    domain: "lovelyredsrugs.com",
+    image: "/work/lovelyreds.webp",
+    blurb:
+      "Hand-tufted rug artist — gallery, pricing, and a start-your-rug contact flow.",
+    tag: "Business",
   },
 ] as const;
 
