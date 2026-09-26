@@ -36,9 +36,9 @@ export default function OpengraphImage() {
         </div>
         <div style={{ display: "flex", gap: 24 }}>
           {[
-            ["Presence", "$900"],
-            ["Business", "$1,800"],
-            ["Bookings", "$3,200"],
+            ["1 page", "$300–$1.5k"],
+            ["4–6 pages", "$1k–$5k"],
+            ["Booking site", "$2.5k–$6k+"],
           ].map(([name, price]) => (
             <div
               key={name}
@@ -52,7 +52,7 @@ export default function OpengraphImage() {
               }}
             >
               <span style={{ fontSize: 26, color: "#5c6976" }}>{name}</span>
-              <span style={{ fontSize: 52, fontWeight: 700, color: "#0a6e64" }}>
+              <span style={{ fontSize: 44, fontWeight: 700, color: "#0a6e64" }}>
                 {price}
               </span>
             </div>

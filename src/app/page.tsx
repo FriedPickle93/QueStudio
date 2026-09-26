@@ -1,15 +1,18 @@
 import Image from "next/image";
+import { Estimator } from "@/components/Estimator";
 import { HeroVisual } from "@/components/HeroVisual";
 import { SiteHeader } from "@/components/SiteHeader";
 import {
   addOns,
   brand,
   carePlans,
+  formatRange,
   formatUsd,
   guardrails,
   notSelling,
   packages,
   portfolio,
+  priceFactors,
   quotes,
 } from "@/lib/offer";
 
@@ -31,13 +34,17 @@ export default function Home() {
               {brand.oneLiner}
             </p>
             <div className="animate-rise-delay-3 mt-8 flex flex-wrap gap-3">
-              <a href="#packages" className="btn-primary no-underline">
-                See fixed packages
+              <a href="#estimate" className="btn-primary no-underline">
+                Estimate your price
               </a>
-              <a href="#quote" className="btn-secondary no-underline">
-                Request a quote
+              <a href="#packages" className="btn-secondary no-underline">
+                See packages
               </a>
             </div>
+            <p className="animate-rise-delay-3 mt-5 text-sm text-muted">
+              One-pagers from {formatUsd(packages[0].priceMin)} · booking sites
+              to {formatUsd(packages[2].priceMax)}+
+            </p>
           </div>
           <div className="animate-rise-delay-2">
             <HeroVisual />
@@ -62,11 +69,13 @@ export default function Home() {
         <section id="packages" className="section-pad section-y border-t border-line">
           <div className="mb-12 max-w-2xl">
             <h2 className="display text-4xl font-bold sm:text-5xl">
-              Three fixed packages.
+              Three packages, priced by scope.
             </h2>
             <p className="mt-4 text-lg text-muted">
-              Clear scope. Clear price. Payment: {brand.payment}. Extra
-              revisions after the included round: {brand.revisionRate}.
+              Every project lands somewhere in its range depending on the work
+              involved. You get one fixed number in writing before anything
+              starts. Payment: {brand.payment}. Extra revisions after the
+              included round: {brand.revisionRate}.
             </p>
           </div>
           <div className="grid gap-6 lg:grid-cols-3">
@@ -87,8 +96,15 @@ export default function Home() {
                     </span>
                   ) : null}
                 </div>
-                <p className="mt-3 display text-4xl font-extrabold text-signal">
-                  {formatUsd(pkg.price)}
+                <p className="mt-3 display text-3xl font-extrabold text-signal sm:text-4xl">
+                  {formatRange(
+                    pkg.priceMin,
+                    pkg.priceMax,
+                    "openEnded" in pkg && pkg.openEnded,
+                  )}
+                </p>
+                <p className="mt-1 text-sm font-semibold text-ink-soft">
+                  Typical {formatUsd(pkg.typical)}
                 </p>
                 <p className="mt-2 text-sm text-muted">
                   Best for {pkg.bestFor.toLowerCase()} · {pkg.turnaround}
@@ -101,12 +117,59 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <a href="#quote" className="btn-primary mt-8 no-underline">
-                  Start with {pkg.name}
+                <a href="#estimate" className="btn-primary mt-8 no-underline">
+                  Price a {pkg.name} build
                 </a>
               </article>
             ))}
           </div>
+        </section>
+
+        {/* What moves the price */}
+        <section id="pricing" className="section-pad section-y border-t border-line">
+          <div className="mb-10 max-w-2xl">
+            <h2 className="display text-4xl font-bold sm:text-5xl">
+              What moves the price.
+            </h2>
+            <p className="mt-4 text-lg text-muted">
+              No mystery math. These six things decide whether a project sits at
+              the bottom or the top of its range.
+            </p>
+          </div>
+          <div className="overflow-x-auto border border-line bg-screen/60">
+            <table className="w-full min-w-[40rem] text-left text-sm">
+              <thead className="border-b border-line bg-ink text-highlight">
+                <tr>
+                  <th className="px-4 py-3 font-semibold">Factor</th>
+                  <th className="px-4 py-3 font-semibold">Bottom of range</th>
+                  <th className="px-4 py-3 font-semibold">Top of range</th>
+                </tr>
+              </thead>
+              <tbody>
+                {priceFactors.map((row) => (
+                  <tr key={row.factor} className="border-b border-line/80">
+                    <td className="px-4 py-3 font-semibold">{row.factor}</td>
+                    <td className="px-4 py-3 text-muted">{row.low}</td>
+                    <td className="px-4 py-3 text-ink-soft">{row.high}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        {/* Estimator */}
+        <section id="estimate" className="section-pad section-y border-t border-line">
+          <div className="mb-10 max-w-2xl">
+            <h2 className="display text-4xl font-bold sm:text-5xl">
+              Build your estimate.
+            </h2>
+            <p className="mt-4 text-lg text-muted">
+              Pick the type of site and what it needs. The range updates as you
+              go, and you can send the whole thing over in one email.
+            </p>
+          </div>
+          <Estimator />
         </section>
 
         {/* Portfolio */}
@@ -224,10 +287,10 @@ export default function Home() {
         <section id="examples" className="section-pad section-y border-t border-line">
           <div className="mb-10 max-w-2xl">
             <h2 className="display text-4xl font-bold sm:text-5xl">
-              Example quotes.
+              Real quotes, and where they landed.
             </h2>
             <p className="mt-4 text-lg text-muted">
-              Templates for fixed quotes — line items, then total.
+              Each of these started as a range and ended as one fixed number.
             </p>
           </div>
           <div className="grid gap-6 lg:grid-cols-3">
@@ -260,8 +323,9 @@ export default function Home() {
                 <p className="mt-4 text-sm font-semibold">
                   Total {formatUsd(q.total)} · 50% start = {formatUsd(q.deposit)}
                 </p>
+                <p className="mt-2 text-xs text-muted">{q.rangeNote}</p>
                 {"footnote" in q && q.footnote ? (
-                  <p className="mt-2 text-xs text-muted">{q.footnote}</p>
+                  <p className="mt-1 text-xs text-muted">{q.footnote}</p>
                 ) : null}
               </article>
             ))}

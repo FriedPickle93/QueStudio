@@ -13,8 +13,8 @@ export function SiteHeader() {
         <a href="#work" className="hidden no-underline hover:underline sm:inline">
           Work
         </a>
-        <a href="#quote" className="btn-primary !px-4 !py-2 text-sm">
-          Get a quote
+        <a href="#estimate" className="btn-primary !px-4 !py-2 text-sm">
+          Estimate price
         </a>
       </nav>
     </header>

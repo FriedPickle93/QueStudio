@@ -19,11 +19,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "QueStudio — Websites that get bookings and calls",
   description:
-    "Fixed-package custom websites for local businesses. Presence $900 · Business $1,800 · Bookings $3,200. Next.js + Vercel.",
+    "Custom websites for local businesses, priced by scope. One-pagers $300–$1,500 · 4–6 page sites $1,000–$5,000 · booking sites $2,500–$6,000+.",
   openGraph: {
     title: "QueStudio — Websites that get bookings and calls",
     description:
-      "Custom websites for local shops, trades, food, beauty, and home services. Fixed packages, no agency fluff.",
+      "Custom websites for local shops, trades, food, beauty, and home services. Transparent price ranges, one fixed quote.",
     type: "website",
     url: siteUrl,
     siteName: "QueStudio",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "QueStudio — Websites that get bookings and calls",
     description:
-      "Fixed-package custom websites for local businesses. Presence $900 · Business $1,800 · Bookings $3,200.",
+      "Custom websites for local businesses, priced by scope. One-pagers from $300, booking sites to $6,000+.",
   },
 };
 

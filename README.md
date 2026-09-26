@@ -4,13 +4,18 @@ Custom websites for local businesses — fast, branded, and built to get booking
 
 ## Packages
 
-| Package | Price | Turnaround |
-| --- | --- | --- |
-| Presence | $900 | 5–7 days |
-| Business | $1,800 | 10–14 days |
-| Bookings | $3,200 | 2–3 weeks |
+Quotes are ranges until scope is confirmed, then one fixed price in writing.
+
+| Package | Scope | Range | Typical | Turnaround |
+| --- | --- | --- | --- | --- |
+| Presence | 1 page | $300–$1,500 | $900 | 5–7 days |
+| Business | 4–6 pages | $1,000–$5,000 | $1,800 | 10–14 days |
+| Bookings | Booking / custom | $2,500–$6,000+ | $3,200 | 2–3 weeks |
 
 Payment: 50% to start, 50% before go-live.
+
+The on-site estimator starts from the package range, adds flat add-on prices,
+and applies the rush multiplier — see `estimate()` in `src/lib/offer.ts`.
 
 ## Stack
 
