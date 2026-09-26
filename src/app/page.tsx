@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Estimator } from "@/components/Estimator";
+import { QuoteFlow } from "@/components/QuoteFlow";
 import { HeroVisual } from "@/components/HeroVisual";
 import { SiteHeader } from "@/components/SiteHeader";
 import {
@@ -165,11 +165,12 @@ export default function Home() {
               Build your estimate.
             </h2>
             <p className="mt-4 text-lg text-muted">
-              Pick the type of site and what it needs. The range updates as you
-              go, and you can send the whole thing over in one email.
+              Pick the type of site and what it needs, then send it over. The
+              range updates as you go and arrives with your message, so the
+              first reply is a real quote instead of twenty questions.
             </p>
           </div>
-          <Estimator />
+          <QuoteFlow />
         </section>
 
         {/* Portfolio */}
@@ -383,16 +384,24 @@ export default function Home() {
               Ready for a fixed quote?
             </h2>
             <p className="mt-4 text-base leading-relaxed text-paper/80">
-              Reply with your business name, which package (Presence, Business,
-              or Bookings), and any add-ons. 50% starts the build clock once
+              Send your scope through the estimator and you get a fixed price in
+              writing within 1 business day. 50% starts the build clock once
               content is in.
             </p>
-            <a
-              href={`mailto:${brand.contactEmail}?subject=QueStudio%20quote%20request&body=Business%20name%3A%0APackage%20(Presence%20%2F%20Business%20%2F%20Bookings)%3A%0AAdd-ons%3A%0APhone%20%2F%20IG%3A%0A`}
-              className="btn-primary mt-8 !bg-highlight !text-ink no-underline hover:!bg-signal-bright hover:!text-white"
-            >
-              Email {brand.contactEmail}
-            </a>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a
+                href="#estimate"
+                className="btn-primary !bg-highlight !text-ink no-underline hover:!bg-signal-bright hover:!text-white"
+              >
+                Build your estimate
+              </a>
+              <a
+                href={`mailto:${brand.contactEmail}`}
+                className="btn-secondary !border-paper/40 !text-paper no-underline hover:!bg-paper hover:!text-ink"
+              >
+                Or email direct
+              </a>
+            </div>
             <p className="mt-6 text-sm text-paper/60">{brand.payment}</p>
           </div>
         </section>

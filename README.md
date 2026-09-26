@@ -30,6 +30,21 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
+## Quote form
+
+The estimator and the contact form are one form. Scope selections travel with
+the submission, so an inquiry arrives already priced.
+
+On submit a Server Action (`src/app/actions.ts`) validates the input, emails
+the inquiry to you with the visitor's address as `reply_to`, and sends the
+visitor an auto-reply containing their estimate and the content checklist.
+
+Set `RESEND_API_KEY` to turn on delivery — see `.env.example`. Until it is set
+(or if a send fails), the form degrades instead of breaking: the visitor gets a
+copyable summary plus the direct email address.
+
+Spam is handled with a hidden honeypot field and a short per-IP rate limit.
+
 ## Deploy
 
 Connect the repo on Vercel — the defaults for Next.js work as-is.
