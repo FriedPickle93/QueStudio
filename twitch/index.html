@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>XQUESEX Twitch kit</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #07010f;
+      --card: #12071c;
+      --line: rgba(180, 80, 255, 0.35);
+      --text: #f4ecff;
+      --muted: #b9a4d4;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      background:
+        radial-gradient(1200px 500px at 80% -10%, rgba(140, 0, 255, 0.28), transparent 60%),
+        var(--bg);
+      color: var(--text);
+    }
+    header, main { width: min(1100px, calc(100% - 32px)); margin: 0 auto; }
+    header { padding: 36px 0 8px; }
+    h1 {
+      margin: 0;
+      letter-spacing: 0.14em;
+      font-size: clamp(32px, 5vw, 56px);
+    }
+    p { font-family: "Segoe UI", sans-serif; color: var(--muted); line-height: 1.5; }
+    .lead { max-width: 62ch; }
+    figure { margin: 0; }
+    figcaption {
+      font-family: "Segoe UI", sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    img { display: block; width: 100%; height: auto; }
+    .frame {
+      border: 1px solid var(--line);
+      background: var(--card);
+      padding: 10px;
+      margin: 22px 0;
+      box-shadow: 0 0 40px rgba(120, 0, 255, 0.12);
+    }
+    .hero-row {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 16px;
+      align-items: end;
+    }
+    .avatar img { border-radius: 50%; }
+    .panels {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 800px) {
+      .hero-row { grid-template-columns: 1fr; }
+      .avatar { width: 160px; }
+      .panels { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>XQUESEX</h1>
+    <p class="lead">Twitch banner and panel pack in the purple lightning look from the source art. Upload the files below directly. Sizes match Twitch’s profile photo, profile banner, and offline screen.</p>
+  </header>
+  <main>
+    <figure class="frame">
+      <figcaption>Offline banner · 1920 × 1080</figcaption>
+      <img src="offline-banner.jpg" alt="XQUESEX offline banner with the streamer and chrome wordmark" />
+    </figure>
+    <div class="hero-row">
+      <figure class="frame avatar">
+        <figcaption>Profile photo · 800 × 800</figcaption>
+        <img src="avatar.jpg" alt="XQUESEX profile photo" />
+      </figure>
+      <figure class="frame">
+        <figcaption>Profile banner · 1200 × 480</figcaption>
+        <img src="profile-banner.jpg" alt="XQUESEX wide profile banner" />
+      </figure>
+    </div>
+    <figure>
+      <figcaption>Panels · 1024 × 1024</figcaption>
+      <div class="panels">
+        <img src="panels/about.jpg" alt="About me panel" />
+        <img src="panels/schedule.jpg" alt="Schedule panel" />
+        <img src="panels/socials.jpg" alt="Socials panel" />
+        <img src="panels/discord.jpg" alt="Discord panel" />
+        <img src="panels/subscribe.jpg" alt="Subscribe panel" />
+        <img src="panels/donate.jpg" alt="Donate panel" />
+        <img src="panels/rules.jpg" alt="Rules panel" />
+        <img src="panels/specs.jpg" alt="PC specs panel" />
+      </div>
+    </figure>
+  </main>
+</body>
+</html>
