@@ -1,0 +1,46 @@
+---
+alwaysApply: true
+---
+
+# FiveM (CitizenFX)
+
+This is a FiveM (CitizenFX) resource project.
+
+## Natives
+
+Before using any native, check `natives.json` (project root) for the exact name, parameters, and return type. Never invent natives.
+
+Distinguish client-side, server-side, and shared code. Only use natives that are valid for the side the file runs on. A native marked client-only must not be called from server scripts, and a server-only native must not be called from client scripts.
+
+Reference: https://docs.fivem.net/natives/
+
+## Resource manifest
+
+Follow the `fxmanifest.lua` structure:
+
+- `fx_version` and `game`
+- `client_scripts` for code that runs on the client
+- `server_scripts` for code that runs on the server
+- `shared_scripts` for code loaded on both sides
+- `ui_page` and `files` for NUI assets
+
+## Events
+
+Use events correctly:
+
+- `TriggerEvent` for a local event on the same side
+- `TriggerServerEvent` from the client to the server
+- `TriggerClientEvent` from the server to one client or all clients
+- `RegisterNetEvent` before handling an event that crosses the network
+- `AddEventHandler` to handle the event
+
+On the server, validate `source` and never trust data sent by the client. Check types, ranges, ownership, and permissions before changing state or granting anything.
+
+## Threads and waits
+
+Avoid tight loops with `Wait(0)` unless the work must run every frame. Use an appropriate `Wait` time, and prefer events or a dedicated thread over polling.
+
+## Docs
+
+- https://docs.fivem.net/docs/
+- https://docs.fivem.net/natives/
