@@ -1,0 +1,8 @@
+# Local Nodecraft FTP/SFTP login. Never commit.
+.env.nodecraft
+
+# Host-managed server artifact, runtime cache, and panel metadata.
+/FXServer/
+/cache/
+/.nc_files/
+.replxx_history
